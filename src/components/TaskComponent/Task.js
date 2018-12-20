@@ -3,9 +3,9 @@ import React from 'react';
 import './Task.css'
 
 const Task = props => (
-    <div>
+    <div className="task">
         <p>{props.task}</p>
-        <button onClick={props.remove}>x</button>
+        <button className="removeBtn" onClick={props.remove}></button>
     </div>
 );
 

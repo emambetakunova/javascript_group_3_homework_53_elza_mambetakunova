@@ -3,10 +3,10 @@ import React from 'react';
 import './AddTaskForm.css'
 
 const AddTaskForm = props => (
-    <p>
+    <div className="addTaskForm">
         <input type="text" value={props.value} onChange={props.changeHandler} />
-        <button onClick={props.onClick}>Add</button>
-    </p>
+        <button className="addBtn" onClick={props.onClick}>Add</button>
+    </div>
 
 );
 

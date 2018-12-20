@@ -22,20 +22,26 @@ class App extends Component {
     };
 
     addTask = () => {
-        const newTask = {task: this.state.newTaskText, id: generatorId()};
-        const tasks = [...this.state.tasks];
-        tasks.push(newTask)
-        this.setState({tasks, value: ''});
+        if (this.state.value === "") {
+            alert('Please, add your task!')
+        } else {
+            const newTask = {task: this.state.newTaskText, id: generatorId()};
+            const tasks = [...this.state.tasks];
+            tasks.push(newTask)
+            this.setState({tasks, value: ''});
+        }
     };
 
     changeHandler = event => {
         this.setState({newTaskText: event.target.value, value: event.target.value});
-    }
+    };
 
     removeTask = id => {
-        const newTasks = [...this.state.tasks];
-        newTasks.map();
-        this.setState({});
+        const index = this.state.tasks.findIndex(p => p.id === id);
+        const allTask = [...this.state.tasks];
+        allTask.splice(index, 1);
+
+        this.setState({tasks: allTask});
     };
 
     render() {
@@ -62,7 +68,7 @@ class App extends Component {
                 {tasks}
             </div>
         );
-    }
+    };
 }
 
 export default App;
